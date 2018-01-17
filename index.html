@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Firebase WebApp</h2>
+
+<script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBK03WFa_R8L1am35E_SIC3FlmE2jaWdVA",
+    authDomain: "inf551-2a2dd.firebaseapp.com",
+    databaseURL: "https://inf551-2a2dd.firebaseio.com",
+    projectId: "inf551-2a2dd",
+    storageBucket: "inf551-2a2dd.appspot.com",
+    messagingSenderId: "764354013863"
+  };
+  firebase.initializeApp(config);
+  var dbRef = firebase.database().ref().child("Date");
+
+  // query example: a single value
+  dbRef.on('value', function(snapshot) { 
+     console.log("snapshot" + ": " + snapshot);
+     Data = snapshot.val()
+  });
+ 
+</script>
+
+
+<button type="button"
+onclick="document.getElementById('demo').innerHTML = Data">
+Click me to display Data.</button>
+
+<p id="demo"></p>
+
+</body>
+</html> 
